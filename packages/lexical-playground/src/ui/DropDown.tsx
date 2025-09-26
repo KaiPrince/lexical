@@ -76,7 +76,7 @@ function DropDownItems({
   autofocus,
 }: {
   children: React.ReactNode;
-  dropDownRef: React.RefObject<HTMLDivElement>;
+  dropDownRef: React.RefObject<HTMLDivElement | null>;
   onClose: () => void;
   autofocus: boolean;
 }) {
@@ -173,8 +173,7 @@ export default function DropDown({
   children: ReactNode;
   stopCloseOnClickSelf?: boolean;
 }): JSX.Element {
-  const dropDownRef: React.RefObject<HTMLDivElement> =
-    useRef<HTMLDivElement>(null);
+  const dropDownRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
   const [showDropDown, setShowDropDown] = useState(false);
   const [shouldAutofocus, setShouldAutofocus] = useState(false);
